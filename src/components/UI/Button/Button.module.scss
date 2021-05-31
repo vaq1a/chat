@@ -1,0 +1,37 @@
+.button {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  line-height: 1.1;
+  font-size: 14px;
+
+  &.__small {
+    padding: 10px 25px;
+  }
+
+  &.__large {
+    padding: 15px 35px;
+  }
+
+  &.__light {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  &.__dark {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+}

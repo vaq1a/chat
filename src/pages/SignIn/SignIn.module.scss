@@ -1,0 +1,25 @@
+.signIn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+
+  .form {
+    min-width: 500px;
+    height: 100%;
+    overflow-y: auto;
+
+    .content {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #000;
+      border-radius: 6px;
+      height: 100%;
+    }
+
+    .input {
+      margin-bottom: 15px;
+    }
+  }
+}
