@@ -2,6 +2,7 @@ import styles from "./Message.module.scss";
 
 const Message = ({
     message = '',
+    userName = '',
 
 }) => {
     return (
@@ -9,9 +10,9 @@ const Message = ({
             <span className={styles.text}>
                 {message}
             </span>
-            {/*<span className={styles.sender}>*/}
-            {/*    от: vaq1a*/}
-            {/*</span>*/}
+            <span className={styles.sender}>
+                от: {userName}
+            </span>
         </div>
     )
 }

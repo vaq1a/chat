@@ -10,7 +10,6 @@ import {getMessagesSelector} from "../../store/selectors/messagesSelector";
 import Message from "../../components/Message";
 import {setMessagesAC} from "../../store/actionCreators/messagesAC";
 
-
 const Room = () => {
     const dispatch = useDispatch();
     const users = useSelector(getUsersSelector);
@@ -55,7 +54,8 @@ const Room = () => {
                     {
                         !!messages.length && messages.map((message, index) => (
                             <Message key={index}
-                                     message={message} />
+                                     userName={message.userName}
+                                     message={message.message} />
                         ))
                     }
                     <AddMessageForm />

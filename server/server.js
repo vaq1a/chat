@@ -46,8 +46,8 @@ io.on("connection", (socket) => {
         io.in(roomId).emit('ROOM:JOINED', users);
     });
 
-    socket.on('MESSAGES:ADD_MESSAGE', ({roomId, message}) => {
-        rooms.get(roomId).get('messages').push(message);
+    socket.on('MESSAGES:ADD_MESSAGE', ({roomId, message, userName}) => {
+        rooms.get(roomId).get('messages').push({message, userName});
 
         const messages = rooms.get(roomId).get('messages');
 

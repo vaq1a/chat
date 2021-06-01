@@ -14,20 +14,19 @@ const SignIn = () => {
     const [roomId, setRoomId] = useState('');
     const [name, setName] = useState('');
 
+    const obj = {
+        roomId,
+        name,
+
+    }
+
     const handleSubmit = async () => {
         if(!roomId || !name) {
           return alert('Fill in all the fields');
         }
-
-        let obj = {
-            roomId,
-            name,
-
-        }
+        dispatch(addUserAC(obj));
 
         await axios.post('/room', obj);
-
-        dispatch(addUserAC(obj));
 
         setRoomId('');
         setName('');
