@@ -21,15 +21,12 @@ const SignIn = () => {
     }
 
     const handleSubmit = async () => {
-        if(!roomId || !name) {
-          return alert('Fill in all the fields');
-        }
+        setRoomId('');
+        setName('');
+
         dispatch(addUserAC(obj));
 
         await axios.post('/room', obj);
-
-        setRoomId('');
-        setName('');
 
         socket.emit('ROOM:JOIN', obj);
         socket.emit('MESSAGES:GET_MESSAGES', {
@@ -49,11 +46,17 @@ const SignIn = () => {
                            value={name}
                            onChange={setName}
                            className={styles.input} />
-                    <Link to={`/room/${roomId}`}>
-                        <Button onClick={handleSubmit}>
-                            Войти
-                        </Button>
-                    </Link>
+                    {
+                        roomId && name ? (
+                            <Link to={`/room/${roomId}`}>
+                                <Button onClick={handleSubmit}>
+                                    Войти
+                                </Button>
+                            </Link>
+                        ) : (
+                            <div>Введите данные...</div>
+                        )
+                    }
                 </div>
             </div>
         </div>

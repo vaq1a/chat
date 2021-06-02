@@ -19,6 +19,7 @@ const Button = ({
     size = ButtonSize.small,
     theme = ButtonTheme.light,
     onClick = () => {},
+    disabled = false,
 
 }) => {
 
@@ -27,14 +28,16 @@ const Button = ({
        className,
        size,
        theme,
+       disabled && styles.__disabled,
 
     );
 
     return (
-        <div className={classes}
+        <button disabled={disabled}
+                className={classes}
              onClick={onClick}>
             {children}
-        </div>
+        </button>
     )
 }
 
